@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#0b1f2a" />
+  <title>チャレンジ知育ラボ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg" aria-hidden="true">
+    <div class="grid-lines"></div>
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="scan"></div>
+  </div>
+
+  <div id="fx-layer" class="fx-layer" aria-hidden="true"></div>
+
+  <header class="top-bar">
+    <button type="button" id="btn-home" class="icon-btn" aria-label="ホームへ" hidden>←</button>
+    <div class="score-chip" aria-live="polite">
+      <span class="chip-label">SCORE</span>
+      <span id="total-score">0</span>
+    </div>
+  </header>
+
+  <main id="app">
+    <section id="screen-home" class="screen active" aria-label="ホーム">
+      <div class="brand-block">
+        <p class="brand-mark">CHALLENGE LAB</p>
+        <h1 class="brand-title">チャレンジ知育ラボ</h1>
+        <p class="brand-sub">10さいからの頭脳トレーニング</p>
+      </div>
+
+      <nav class="game-grid" aria-label="チャレンジ一覧">
+        <button type="button" class="game-tile tile-math" data-game="math">
+          <span class="tile-badge">MATH</span>
+          <span class="tile-icon" aria-hidden="true">÷×</span>
+          <span class="tile-label">けいさんバトル</span>
+          <span class="tile-desc">四則演算をタイムアタック</span>
+        </button>
+        <button type="button" class="game-tile tile-seq" data-game="seq">
+          <span class="tile-badge">LOGIC</span>
+          <span class="tile-icon" aria-hidden="true">2 4 8 ?</span>
+          <span class="tile-label">すうじパズル</span>
+          <span class="tile-desc">きそくを見つけて穴埋め</span>
+        </button>
+        <button type="button" class="game-tile tile-word" data-game="word">
+          <span class="tile-badge">WORD</span>
+          <span class="tile-icon" aria-hidden="true">あ⇔ん</span>
+          <span class="tile-label">いみマッチ</span>
+          <span class="tile-desc">反対語・仲間ことば</span>
+        </button>
+        <button type="button" class="game-tile tile-memory" data-game="memory">
+          <span class="tile-badge">MEMORY</span>
+          <span class="tile-icon" aria-hidden="true">◆◇</span>
+          <span class="tile-label">メモリープラス</span>
+          <span class="tile-desc">8ペアをすばやくそろえる</span>
+        </button>
+      </nav>
+    </section>
+
+    <section id="screen-game" class="screen" aria-label="ゲーム" hidden>
+      <div class="hud">
+        <div class="hud-item">
+          <span class="hud-label">COMBO</span>
+          <span id="combo">0</span>
+        </div>
+        <div class="hud-item hud-center">
+          <h2 id="game-title" class="game-title"></h2>
+        </div>
+        <div class="hud-item hud-right">
+          <span class="hud-label">TIME</span>
+          <span id="timer">60</span>
+        </div>
+      </div>
+      <p id="game-prompt" class="game-prompt"></p>
+      <div id="game-stage" class="game-stage"></div>
+      <div class="run-score">
+        <span>この回</span>
+        <strong id="run-score">0</strong>
+      </div>
+    </section>
+
+    <section id="screen-result" class="screen" aria-label="結果" hidden>
+      <div class="result-panel">
+        <p class="result-eyebrow">MISSION CLEAR</p>
+        <h2 class="result-title" id="result-title">おつかれ！</h2>
+        <p class="result-score-label">今回のスコア</p>
+        <p class="result-score" id="result-score">0</p>
+        <p class="result-meta" id="result-meta"></p>
+        <div class="result-actions">
+          <button type="button" id="btn-replay" class="btn-primary">もういちど</button>
+          <button type="button" id="btn-to-home" class="btn-secondary">ホームへ</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
