@@ -11,7 +11,18 @@
 | いみマッチ | 反対語・仲間・意味の選択 |
 | メモリープラス | 8ペアの記憶マッチ（90秒） |
 
-## 起動
+## 4〜5歳向け（レベルアップ版）
+
+[`park/`](./park/) に、わくわく知育パークのチャレンジ版（ゲーム10種）があります。
+
+- 本番URL: https://yinoue-crypto.github.io/chiiku-park-9fkeom/
+- プレビュー: https://yinoue-crypto.github.io/chiiku-lab-9fkeom/park/
+
+```bash
+npx --yes serve park -p 5500
+```
+
+## 起動（ラボ）
 
 ```bash
 npx --yes serve . -p 5501
