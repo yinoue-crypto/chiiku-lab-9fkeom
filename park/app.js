@@ -608,12 +608,9 @@
       unit = [tokens[0], tokens[1], tokens[2]];
     }
 
-    const showCount = unit.length;
-    const sequence = unit.slice(0, showCount);
-    const answer = unit[0]; // next after one full cycle
     // Show one full cycle, ask for the first of the next cycle
-    const displaySeq = [...sequence];
-    const correct = answer;
+    const displaySeq = [...unit];
+    const correct = unit[0];
 
     const pool = shuffle([
       correct,
