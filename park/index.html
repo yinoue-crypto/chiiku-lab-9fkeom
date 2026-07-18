@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#5ec8f0" />
+  <title>わくわく知育パーク</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="sky" aria-hidden="true">
+    <div class="cloud cloud-a"></div>
+    <div class="cloud cloud-b"></div>
+    <div class="cloud cloud-c"></div>
+    <div class="hill hill-back"></div>
+    <div class="hill hill-front"></div>
+  </div>
+
+  <div id="star-burst" class="star-burst" aria-hidden="true"></div>
+
+  <header class="top-bar">
+    <button type="button" id="btn-home" class="icon-btn" aria-label="ホームへ" hidden>
+      <span aria-hidden="true">⌂</span>
+    </button>
+    <div class="star-counter" aria-live="polite">
+      <span class="star-icon" aria-hidden="true">★</span>
+      <span id="star-count">0</span>
+    </div>
+  </header>
+
+  <main id="app">
+    <!-- ホーム -->
+    <section id="screen-home" class="screen active" aria-label="ホーム">
+      <div class="brand-block">
+        <p class="brand-mark">WAKUWAKU</p>
+        <h1 class="brand-title">わくわく知育パーク</h1>
+        <p class="brand-sub">ちょっとむずかしい！チャレンジしよう</p>
+      </div>
+
+      <nav class="game-grid" aria-label="ゲーム一覧">
+        <button type="button" class="game-tile tile-color" data-game="color">
+          <span class="tile-visual" aria-hidden="true">
+            <span class="blob blob-r"></span>
+            <span class="blob blob-y"></span>
+            <span class="blob blob-b"></span>
+          </span>
+          <span class="tile-label">いろあわせ</span>
+        </button>
+        <button type="button" class="game-tile tile-count" data-game="count">
+          <span class="tile-visual" aria-hidden="true">
+            <span class="count-preview">🍎🍎🍎</span>
+          </span>
+          <span class="tile-label">かぞえよう</span>
+        </button>
+        <button type="button" class="game-tile tile-memory" data-game="memory">
+          <span class="tile-visual" aria-hidden="true">
+            <span class="mem-card-preview">?</span>
+            <span class="mem-card-preview flipped">🐱</span>
+          </span>
+          <span class="tile-label">めくりカード</span>
+        </button>
+        <button type="button" class="game-tile tile-shape" data-game="shape">
+          <span class="tile-visual" aria-hidden="true">
+            <span class="shape-preview circle"></span>
+            <span class="shape-preview square"></span>
+            <span class="shape-preview triangle"></span>
+          </span>
+          <span class="tile-label">かたちさがし</span>
+        </button>
+        <button type="button" class="game-tile tile-pattern" data-game="pattern">
+          <span class="tile-visual" aria-hidden="true">
+            <span class="pattern-preview">🔴🔵🔴❓</span>
+          </span>
+          <span class="tile-label">つぎはなに？</span>
+        </button>
+        <button type="button" class="game-tile tile-size" data-game="size">
+          <span class="tile-visual" aria-hidden="true">
+            <span class="size-preview">
+              <span class="size-dot s"></span>
+              <span class="size-dot m"></span>
+              <span class="size-dot l"></span>
+            </span>
+          </span>
+          <span class="tile-label">おおきさくらべ</span>
+        </button>
+        <button type="button" class="game-tile tile-odd" data-game="odd">
+          <span class="tile-visual" aria-hidden="true">
+            <span class="odd-preview">🐶🐶🐱🐶</span>
+          </span>
+          <span class="tile-label">なかまはずれ</span>
+        </button>
+        <button type="button" class="game-tile tile-shadow" data-game="shadow">
+          <span class="tile-visual" aria-hidden="true">
+            <span class="shadow-preview">🦇</span>
+          </span>
+          <span class="tile-label">かげあて</span>
+        </button>
+        <button type="button" class="game-tile tile-add" data-game="add">
+          <span class="tile-visual" aria-hidden="true">
+            <span class="add-preview">🍎+🍎=?</span>
+          </span>
+          <span class="tile-label">たしざん</span>
+        </button>
+        <button type="button" class="game-tile tile-kana" data-game="kana">
+          <span class="tile-visual" aria-hidden="true">
+            <span class="kana-preview">あ</span>
+          </span>
+          <span class="tile-label">ひらがな</span>
+        </button>
+      </nav>
+    </section>
+
+    <!-- ゲーム共通シェル -->
+    <section id="screen-game" class="screen" aria-label="ゲーム" hidden>
+      <div class="game-header">
+        <h2 id="game-title" class="game-title"></h2>
+        <p id="game-prompt" class="game-prompt"></p>
+      </div>
+      <div id="game-stage" class="game-stage"></div>
+      <div class="game-footer">
+        <div class="progress-dots" id="progress-dots" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- クリア -->
+    <section id="screen-clear" class="screen" aria-label="クリア" hidden>
+      <div class="clear-panel">
+        <div class="clear-mascot" aria-hidden="true">🌟</div>
+        <h2 class="clear-title">やったね！</h2>
+        <p class="clear-sub">スターをゲット！</p>
+        <div class="clear-stars" id="clear-stars" aria-hidden="true"></div>
+        <div class="clear-actions">
+          <button type="button" id="btn-replay" class="btn-primary">もういっかい</button>
+          <button type="button" id="btn-to-home" class="btn-secondary">ホームへ</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
