@@ -3,6 +3,11 @@
 4〜5歳向けの知育ミニゲーム集です。大きなボタンと明るい画面で、タッチ操作だけで遊べます。
 既存のやさしい内容から一歩進んだチャレンジ難易度です。
 
+## URL
+
+- 本番（わくわく知育パーク）: https://yinoue-crypto.github.io/chiiku-park-9fkeom/
+- ラボ内プレビュー: https://yinoue-crypto.github.io/chiiku-lab-9fkeom/park/
+
 ## 遊び方
 
 1. `index.html` をブラウザで開く（または下のローカルサーバー）

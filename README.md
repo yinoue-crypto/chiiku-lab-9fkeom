@@ -15,6 +15,9 @@
 
 [`park/`](./park/) に、わくわく知育パークのチャレンジ版（ゲーム10種）があります。
 
+- 本番URL: https://yinoue-crypto.github.io/chiiku-park-9fkeom/
+- プレビュー: https://yinoue-crypto.github.io/chiiku-lab-9fkeom/park/
+
 ```bash
 npx --yes serve park -p 5500
 ```
